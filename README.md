@@ -1,6 +1,6 @@
 # Build instructions
 
-Right click on [MainActivity](https://github.com/gcmaidana/fetch-exercise/blob/master/app/src/main/java/com/example/fetch_exercise/MainActivity.java) and run the program in Android Studio.
+Right click on [MainActivity class](https://github.com/gcmaidana/fetch-exercise/blob/master/app/src/main/java/com/example/fetch_exercise/MainActivity.java) and run the program in Android Studio.
 You can run it on your own physical device if you'd like, but
 if you want to use a emulator, I recommend the Pixel 2 in Android Studio
 because it has a fairly large screen.
