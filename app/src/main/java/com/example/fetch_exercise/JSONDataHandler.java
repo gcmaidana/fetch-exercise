@@ -1,3 +1,7 @@
+/**
+ * @author: Gean Maidana Dollanarte
+ * */
+
 package com.example.fetch_exercise;
 
 
@@ -15,15 +19,26 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Class retrieves JSON data from a URL, eliminates instances where name is
+ * either null or blank, then sorts it according to
+ * listId, and when the listId is the same, it sorts by id.
+ * The data is displayed in a table with rows for each JSON data by calling
+ * the populateTable() method in the MainActivity class.
+ *
+ * */
 public class JSONDataHandler implements Runnable
 {
-    // This variable has setter and getter methods. It will be set at the end of
-    // the sortJSONData() method, and it will retrieved in the populateTable()
-    // when we have to dynamically create the rows for the table using
-    // the sorted JSON data.
+    // This variable has setter and getter methods for it.
+    // It will be set at the end of the sortJSONData() method.
+    // It will retrieved in the populateTable() method (in the
+    // MainActivity class) when we have to dynamically create the rows for the
+    // table using the sorted JSON data.
     private static JSONArray sortedJsonArray;
 
-    // Add a static variable for MainActivity
+    // Static variable for MainActivity, used in the constructor
+    // so that we have the same reference for the MainActivity class
+    // throughout the program running
     private MainActivity mainActivity;
 
     public JSONDataHandler(MainActivity mainActivity)
@@ -36,10 +51,12 @@ public class JSONDataHandler implements Runnable
     /**
      * fetchJSONData(): This method opens the connection
      * with the FETCH_URL and retrieves JSON data.
+     * @param:  inputURL    inputURL is used to open the URL connection
+     *                      and get the JSON data
      * */
     public void fetchJSONData(URL inputURL)
     {
-        // This method is called in onCreate() and Android
+        // This method is called in onCreate() in MainActivity and Android
         // does not allow network operations in the UI thread so a new
         // thread needs to be created
         new Thread(()-> {
@@ -93,7 +110,7 @@ public class JSONDataHandler implements Runnable
                 // This list will hold jsonList after we remove
                 // names that are null or blank for the jsonArray parameter
                 // Afterwards, jsonList will be sorted according to listId, and
-                // also by name in cases where listId are the same
+                // also by id in cases where listId are the same
                 List<JSONObject> jsonList = new ArrayList<JSONObject>();
 
 
@@ -141,7 +158,7 @@ public class JSONDataHandler implements Runnable
                 sortedJsonArray = new JSONArray(jsonList);
                 setSortedJsonArray(sortedJsonArray);
 
-                run(); // run()
+                run();
             }
             catch(Exception e)
             {
