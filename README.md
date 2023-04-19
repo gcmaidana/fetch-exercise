@@ -9,10 +9,12 @@ For Android Studio, I used Android Studio Flamingo | 2022.2.1
 JDK 17.
 SDK 33.
 
-
-
 # Notes
-I had trouble developing unit tests because of how the program is multithreaded and having to mock the behavior in order to unit test. 
+
+I tried making the code as modular as possible, which is why one class deals mostly with UI and another class deals with the JSON data. It is multithreaded since Android doesn't allow you to do network operation on the UI thread. I have two functions in the JSON class that are important: one that fetches the data, and one that sorts the data. These two threads are sequential in order to not have any data inconsistencies/errors. The method that fetches the JSON data opens a thread and handles that, then at the end of that method, the sort function is called and the jsonArray is passed in as a parameter. I did it this way because if I call both threads in MainActivity, then they can run concurrently and that can cause problems with data inconsistency.
+
+# Testing Notes
+I had trouble developing unit tests for my methods because of how the program is multithreaded and having to mock the behavior in order to unit test. I did try to mock the behavior using Mockito and I also tried with Robolectric but I didn't have any success.
 
 
 In terms of manual testing, I did do emulation tests on the following devices that target the current OS release (Android 13) without a problem:
