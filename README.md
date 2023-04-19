@@ -7,7 +7,7 @@ because it has a fairly large screen.
 
 For Android Studio, I used Android Studio Flamingo | 2022.2.1
 - JDK 17.
-- used SDK 33.
+- SDK 33.
 
 # Notes
 
