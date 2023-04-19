@@ -6,8 +6,8 @@ if you want to use a emulator, I recommend the Pixel 2 in Android Studio
 because it has a fairly large screen.
 
 For Android Studio, I used Android Studio Flamingo | 2022.2.1
-JDK 17.
-SDK 33.
+- JDK 17.
+- used SDK 33.
 
 # Notes
 
